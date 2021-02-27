@@ -19,3 +19,8 @@ _book
 .vscode/
 
 *.out
+
+Debug/
+*.cproject
+*.project
+

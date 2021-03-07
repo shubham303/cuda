@@ -24,3 +24,10 @@ Debug/
 *.cproject
 *.project
 
+.metadata/
+RemoteSystemsTempFiles/
+
+Debug/
+
+intput.txt
+output.txt

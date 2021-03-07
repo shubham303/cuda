@@ -208,26 +208,26 @@ int main(int argc, char **argv) {
 					cudaMemcpyHostToDevice);
 			// kernel launches
 
-			int block_size = (int) ceil((float) n / 4);
+			int block_size = (int) ceil((float) n / 1024);
 
 			if (op == 0) {
 				gettimeofday(&t1, 0);
 
-				dkernel_Adds<<<block_size, 4>>>(gpuOA, gpuCA, gpulocals,
+				dkernel_Adds<<<block_size, 1024>>>(gpuOA, gpuCA, gpulocals,
 						gpucurrentupdate, n);
 				cudaDeviceSynchronize();
 				gettimeofday(&t2, 0);
 			}
 			if (op == 1) {
 				gettimeofday(&t1, 0);
-				dkernel_Mins<<<block_size, 4>>>(gpuOA, gpuCA, gpulocals,
+				dkernel_Mins<<<block_size, 1024>>>(gpuOA, gpuCA, gpulocals,
 						gpucurrentupdate,n);
 				cudaDeviceSynchronize();
 				gettimeofday(&t2, 0);
 			}
 			if (op == 2) {
 				gettimeofday(&t1, 0);
-				dkernel_Maxs<<<block_size, 4>>>(gpuOA, gpuCA, gpulocals,
+				dkernel_Maxs<<<block_size, 1024>>>(gpuOA, gpuCA, gpulocals,
 						gpucurrentupdate,n);
 				cudaDeviceSynchronize();
 				gettimeofday(&t2, 0);
